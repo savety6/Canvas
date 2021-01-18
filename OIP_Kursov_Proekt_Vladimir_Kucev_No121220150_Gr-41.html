@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas{
+            background: honeydew;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Vladimir Danailov Kucev No121220150 Gr41</h1>
+        <canvas id="canvas" width="1000px" height="500px"></canvas>
+        <br>
+        <input type="number" id="A" value="30">
+        <input type="number" id="J" value="84">
+        <button onclick="draw()">Draw</button>        
+        <button onclick="clean()">Clean</button>
+    </div>
+    <script>
+        var c = document.getElementById("canvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle = "#fafaff";
+      	ctx.fillRect(0, 0, c.width, c.height);
+
+        function clean()
+		{ 
+		    ctx.fillStyle = "#fafaff";
+		    ctx.clearRect(0, 0, c.width, c.height);
+			ctx.fillRect(0, 0, c.width, c.height);
+		}
+        function draw()
+		{
+            var A = document.getElementById('A').value * 3;
+			var J = document.getElementById('J').value * 3;
+            var midY = 250;
+            var midX = 500;
+            //axis
+			ctx.beginPath();
+			ctx.setLineDash([15, 5, 2, 5]);
+			ctx.lineWidth = "1";				
+            ctx.moveTo(5, midY);
+	        ctx.lineTo((200 * 3) + J, midY);
+			ctx.strokeStyle = '';
+			ctx.stroke();
+            //element start
+            ctx.beginPath();
+            ctx.setLineDash([0, 0, 0, 0]);
+            ctx.fillStyle = "black";
+            ctx.moveTo(15, midY - (A/2));
+            ctx.lineTo(10, midY - (A/2 -5));
+            ctx.lineTo(10, midY + (A/2 -5));
+            ctx.lineTo(15, midY + (A/2));
+            ctx.stroke();
+            //A 
+            ctx.strokeRect(15, midY - (A/2), 36 *3 , A);
+            //C
+            ctx.strokeRect(123, midY - (108/2), 82 *3 , 36 *3);
+            //G
+            ctx.strokeRect(369, midY - (144/2), 45 *3 , 48 *3);
+            //next
+            ctx.strokeRect(504, midY - (129/2), 3 *3 , 43 *3);
+            //H
+            ctx.strokeRect(513, midY - (156/2), 5 *3 , 52 *3);
+            ctx.beginPath();
+            ctx.moveTo(528, midY - (156/2));
+            ctx.lineTo(534, midY - (156/2 - 5));
+            ctx.lineTo(534, midY + (156/2 - 5));
+            ctx.lineTo(528, midY + (156/2));
+            ctx.stroke();
+            //J
+            ctx.strokeRect(534, midY - (108/2), J, 36 *3);
+            //B
+            ctx.strokeRect(534 + J, midY - (75/2), 3 *3 , 25 *3);
+            //M
+            ctx.strokeRect(543 + J, midY - (90/2), 11 *3 , 30 *3);
+            ctx.beginPath();
+            ctx.moveTo(576 + J, midY - (90/2));
+            ctx.lineTo(581 + J, midY - (90/2 - 5));
+            ctx.lineTo(581 + J, midY + (90/2 - 5));
+            ctx.lineTo(576 + J, midY + (90/2));
+            ctx.stroke();
+        
+        }
+    </script>
+</body>
+</html>
